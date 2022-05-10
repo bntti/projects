@@ -1,0 +1,8 @@
+"""Config variables"""
+WIDTH = 30
+HEIGHT = 16
+TILE_SIZE = 50
+MINE_COUNT = 99
+FPS = 60
+KBD_DELAY = 250
+KBD_INTERVAL = 50
