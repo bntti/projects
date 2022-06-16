@@ -37,7 +37,10 @@ class Automation:
                 if self._logic.user_field[tile_x][tile_y] == "hidden":
                     continue
                 hidden_count = self.get_nearby_hidden_count(tile_x, tile_y)
-                if hidden_count > 0 and hidden_count == self._logic.game_field[tile_x][tile_y]:
+                if (
+                    hidden_count > 0
+                    and hidden_count == self._logic.game_field[tile_x][tile_y]
+                ):
                     self.flag_nearby(tile_x, tile_y)
                     flagged = True
         return flagged

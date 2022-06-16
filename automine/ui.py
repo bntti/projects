@@ -13,11 +13,13 @@ class UI:
         self._logic = logic
         self._controls = control
 
-        self.screen = pygame.display.set_mode((
-            config.WIDTH * config.TILE_SIZE, config.HEIGHT * config.TILE_SIZE
-        ))
+        self.screen = pygame.display.set_mode(
+            (config.WIDTH * config.TILE_SIZE, config.HEIGHT * config.TILE_SIZE)
+        )
 
-    def draw_image(self, left_x: int, top_y: int, bg_color: tuple[int, int, int], path: str) -> None:
+    def draw_image(
+        self, left_x: int, top_y: int, bg_color: tuple[int, int, int], path: str
+    ) -> None:
         """Draw image.
 
         Args:
@@ -26,9 +28,13 @@ class UI:
             bg_color (tuple): Background color.
             path (str): Path tho the image.
         """
-        pygame.draw.rect(self.screen, bg_color, pygame.Rect(
-            left_x + 1, top_y + 1, config.TILE_SIZE - 2, config.TILE_SIZE - 2
-        ))
+        pygame.draw.rect(
+            self.screen,
+            bg_color,
+            pygame.Rect(
+                left_x + 1, top_y + 1, config.TILE_SIZE - 2, config.TILE_SIZE - 2
+            ),
+        )
         flag_image = pygame.image.load(path)
         self.screen.blit(flag_image, (left_x, top_y))
 
@@ -44,18 +50,22 @@ class UI:
             self.draw_image(left_x, top_y, (255, 0, 0), "images/mine.png")
         else:
             color = (30, 30, 30) if tile == "hidden" else (50, 50, 50)
-            pygame.draw.rect(self.screen, color, pygame.Rect(
-                left_x + 1, top_y + 1, config.TILE_SIZE - 2, config.TILE_SIZE - 2
-            ))
+            pygame.draw.rect(
+                self.screen,
+                color,
+                pygame.Rect(
+                    left_x + 1, top_y + 1, config.TILE_SIZE - 2, config.TILE_SIZE - 2
+                ),
+            )
 
             if tile != "hidden" and int(tile) > 0:
-                font = pygame.font.Font('freesansbold.ttf', config.TILE_SIZE)
+                font = pygame.font.Font("freesansbold.ttf", config.TILE_SIZE)
                 text = font.render(str(tile), True, (255, 255, 255))
                 text_rect = text.get_rect()
 
                 text_rect.center = (
                     left_x + config.TILE_SIZE // 2,
-                    top_y + config.TILE_SIZE // 2
+                    top_y + config.TILE_SIZE // 2,
                 )
                 self.screen.blit(text, text_rect)
 
@@ -72,9 +82,12 @@ class UI:
             surface = pygame.Surface((config.TILE_SIZE, config.TILE_SIZE))
             surface.set_alpha(128)
             surface.fill((255, 255, 255))
-            self.screen.blit(surface, (
-                selected_tile["x"] * config.TILE_SIZE,
-                selected_tile["y"] * config.TILE_SIZE
-            ))
+            self.screen.blit(
+                surface,
+                (
+                    selected_tile["x"] * config.TILE_SIZE,
+                    selected_tile["y"] * config.TILE_SIZE,
+                ),
+            )
 
         pygame.display.flip()

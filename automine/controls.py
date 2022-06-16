@@ -18,12 +18,7 @@ class Controls:
         self._logic = logic
         self._automation = automation
 
-        self.selected_tile = {
-            "x": 0,
-            "y": 0,
-            "visible": False,
-            "moved": False
-        }
+        self.selected_tile = {"x": 0, "y": 0, "visible": False, "moved": False}
 
         pygame.key.set_repeat(config.KBD_DELAY, config.KBD_INTERVAL)
         self.update_screen = True
@@ -105,15 +100,14 @@ class Controls:
             return
 
         if pressed[pygame.K_SPACE] and pressed[pygame.K_LSHIFT]:
-            self._logic.action(
-                self.selected_tile["x"], self.selected_tile["y"], False)
+            self._logic.action(self.selected_tile["x"], self.selected_tile["y"], False)
         elif pressed[pygame.K_SPACE]:
             if not self._logic.created:
-                self._logic.create(
-                    self.selected_tile["x"], self.selected_tile["y"])
+                self._logic.create(self.selected_tile["x"], self.selected_tile["y"])
 
             lost = self._logic.action(
-                self.selected_tile["x"], self.selected_tile["y"], True)
+                self.selected_tile["x"], self.selected_tile["y"], True
+            )
             if lost:
                 self.game_over = 1
 

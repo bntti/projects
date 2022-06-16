@@ -13,9 +13,11 @@ class Logic:
         self.created = False
         self.starting_time = 0
         self.game_field = [
-            [0 for _ in range(config.HEIGHT)] for _ in range(config.WIDTH)]
+            [0 for _ in range(config.HEIGHT)] for _ in range(config.WIDTH)
+        ]
         self.user_field = [
-            ["hidden" for _ in range(config.HEIGHT)] for _ in range(config.WIDTH)]
+            ["hidden" for _ in range(config.HEIGHT)] for _ in range(config.WIDTH)
+        ]
 
     def create(self, start_x: int, start_y: int) -> None:
         """Create minefield"""
@@ -61,14 +63,19 @@ class Logic:
                     if not (0 <= new_x < config.WIDTH and 0 <= new_y < config.HEIGHT):
                         continue
 
-                    if (self.user_field[new_x][new_y] == "hidden"
-                            and self.game_field[new_x][new_y] == 0):
+                    if (
+                        self.user_field[new_x][new_y] == "hidden"
+                        and self.game_field[new_x][new_y] == 0
+                    ):
                         tiles.append((new_x, new_y))
-                        self.user_field[new_x][new_y] = '0'
+                        self.user_field[new_x][new_y] = "0"
 
-                    if self.game_field[tile_x][tile_y] == 0 or (x_dir == 0 and y_dir == 0):
+                    if self.game_field[tile_x][tile_y] == 0 or (
+                        x_dir == 0 and y_dir == 0
+                    ):
                         self.user_field[new_x][new_y] = str(
-                            self.game_field[new_x][new_y])
+                            self.game_field[new_x][new_y]
+                        )
 
     def quick_reveal(self, tile_x: int, tile_y: int) -> bool:
         """Reveal nearby tiles when clicking a revealed tile and the correct number of flags are nearby
@@ -139,6 +146,8 @@ class Logic:
         for tile_x in range(config.WIDTH):
             for tile_y in range(config.HEIGHT):
                 if self.game_field[tile_x][tile_y] != -1:
-                    if self.user_field[tile_x][tile_y] != str(self.game_field[tile_x][tile_y]):
+                    if self.user_field[tile_x][tile_y] != str(
+                        self.game_field[tile_x][tile_y]
+                    ):
                         return False
         return True
