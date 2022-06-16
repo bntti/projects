@@ -1,4 +1,4 @@
-# Maze Image Generator
+# Automine
 
 Python minesweeper with automatic flag adding and tile opening.
 
