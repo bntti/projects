@@ -4,15 +4,20 @@ Python minesweeper with automatic flag adding and tile opening.
 
 ## Usage
 ### Dependencies
-- pygame
+- poetry
 
-### Running program
+### Installation
 ```
-$ python3 main.py
+poetry install
 ```
 
-### Using program
-Clicking on an open tile with the same amount of flags as mines will open all unflagged neighboring empty tiles
+### Running the program
+```
+poetry run python3 main.py
+```
+
+### Using the program
+Clicking on an open tile with the same amount of flags as mines will open all unflagged neighboring empty tiles.
 
 | Keybind | Action                                 |
 | ------- | -------------------------------------- |
@@ -21,14 +26,14 @@ Clicking on an open tile with the same amount of flags as mines will open all un
 | `s`     | automatically open tiles               |
 | `a`     | automatically add flags and open tiles |
 
-#### Playing using mouse
+#### Playing with a mouse
 | Keybind     | Action      |
 | ----------- | ----------- |
 | left click  | open tile   |
 | right click | flag/unflag |
 
  
-#### Playing using keyboard
+#### Playing with a keyboard
 | Keybind       | Action      |
 | ------------- | ----------- |
 | arrow keys    | move        |

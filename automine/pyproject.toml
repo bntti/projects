@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "automine"
 version = "0.1.0"
-description = "Minesweeper with some automation"
+description = "Python minesweeper with automatic flag adding and tile opening"
 authors = ["Juho Röyskö <roysko.juho@gmail.com>"]
 license = "GPL-3.0-only"
 
